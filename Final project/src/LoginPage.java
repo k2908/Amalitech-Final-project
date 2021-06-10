@@ -79,14 +79,33 @@ public class LoginPage {
 					}
 					else if (count>1) {
 						 JOptionPane.showMessageDialog(null, "duplicate username and password");}
+					
 					else {
+						try {
+							String query2 ="select * from user where UserName=? and password=?";
+							PreparedStatement pst2= connect.prepareStatement(query2);
+							pst.setString(1, textField1.getText());
+							pst.setString(2,new String (passwordField.getPassword()));	
+							ResultSet r2s=pst2.executeQuery();
+							int coun2t=0;
+							while(rs.next()) {
+								count=count+1;
+							}
+							if(count==1) {
+								 JOptionPane.showMessageDialog(null, "username and password is correct");
+								frame.dispose();
+								 UserPage ggg= new UserPage();
+								ggg.setVisible(true);
+							}
+						}
+						catch (Exception e1){
 						 JOptionPane.showMessageDialog(null, "username and password is not correct, try again");
-						 }
+						}
 				rs.close();
 				pst.close();
-				}
+				}}
 				 catch (Exception e1) {
-					   JOptionPane.showMessageDialog(null, "enter a character");
+					   JOptionPane.showMessageDialog(null, "enter a valid character");
 					} 
 			
 			}

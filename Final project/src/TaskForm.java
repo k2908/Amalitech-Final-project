@@ -202,8 +202,8 @@ public void getCar() {
 						System.out.println(value1);
 						System.out.println(pst2);
 						pst2.executeUpdate();	
-						 JOptionPane.showMessageDialog(null, "new admin registered succesfuly");
-						 
+						 JOptionPane.showMessageDialog(null, "new task registered succesfuly");
+						
 				
 				pst2.close();
 				}

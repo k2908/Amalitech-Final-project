@@ -9,7 +9,7 @@ public class DbConnect {
 			
 			try {
 				Class.forName("org.sqlite.JDBC");
-				Connection conn= DriverManager.getConnection("jdbc:sqlite:C:\\Users\\jdalm\\eclipse-workspace3\\Final project\\Database\\Emsdb.sqlite");
+				Connection conn= DriverManager.getConnection("jdbc:sqlite:C:\\Users\\jdalm\\git\\repository2\\Final project\\Database\\Emsdb.sqlite");
 				JOptionPane.showMessageDialog(null, "connection succ");
 				return conn;
 			}
