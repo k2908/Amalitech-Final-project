@@ -9,7 +9,21 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
+
+import net.proteanit.sql.DbUtils;
+
 import javax.swing.ListSelectionModel;
+import javax.swing.JScrollPane;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.awt.event.ActionEvent;
 
 public class ShowTasks extends JFrame {
 
@@ -43,26 +57,38 @@ public class ShowTasks extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(45, 30, 307, 208);
+		contentPane.add(scrollPane);
+		
 		table = new JTable();
-		table.setFillsViewportHeight(true);
-		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"taskid", "car number", "status", null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-			},
-			new String[] {
-				"task", "car number", "status", "New column", "New column", "New column", "New column"
-			}
-		));
-		table.setBackground(Color.ORANGE);
-		table.setColumnSelectionAllowed(true);
-		table.setCellSelectionEnabled(true);
-		table.setBorder(new LineBorder(Color.GREEN));
-		table.setBounds(34, 195, 239, -106);
-		contentPane.add(table);
+		scrollPane.setViewportView(table);
+		
+		JButton btnNewButton = new JButton("Show active tasks");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+				Connection connect= DbConnect.dbConnect();
+				String query ="select * from Tasks where Status=?;";
+				int count=0;
+				PreparedStatement pst= connect.prepareStatement(query);
+				
+					pst.setString(1,new String ("available"));
+					ResultSet rs=pst.executeQuery();
+					table.setModel(DbUtils.resultSetToTableModel(rs));
+					while(rs.next()) {
+						count=count+1;}
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				
+				}
+			
+		});
+		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
+		btnNewButton.setBounds(161, 0, 172, 23);
+		contentPane.add(btnNewButton);
 	}
 }
