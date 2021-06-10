@@ -12,6 +12,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class EmtForm extends JFrame {
 
@@ -19,6 +22,10 @@ public class EmtForm extends JFrame {
 	private JTextField Fname;
 	private JTextField Lname;
 	private JTextField Expertise;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel_3;
 
 	/**
 	 * Launch the application.
@@ -57,7 +64,8 @@ public class EmtForm extends JFrame {
 		contentPane.add(Lname);
 		Lname.setColumns(10);
 		
-		JButton btnNewButton = new JButton("New button");
+		JButton btnNewButton = new JButton("Register");
+		btnNewButton.setFont(new Font("Times New Roman", Font.ITALIC, 12));
 		btnNewButton.setBounds(164, 227, 89, 23);
 		contentPane.add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
@@ -95,6 +103,30 @@ public class EmtForm extends JFrame {
 		Expertise.setBounds(164, 147, 86, 20);
 		contentPane.add(Expertise);
 		Expertise.setColumns(10);
+		
+		lblNewLabel = new JLabel("Welcome, Fill the form to register a new Emt");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
+		lblNewLabel.setBounds(59, 0, 296, 39);
+		contentPane.add(lblNewLabel);
+		
+		lblNewLabel_1 = new JLabel("First Name");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.ITALIC, 12));
+		lblNewLabel_1.setBounds(42, 53, 71, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		lblNewLabel_2 = new JLabel("Last Name");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.ITALIC, 12));
+		lblNewLabel_2.setBounds(42, 103, 71, 14);
+		contentPane.add(lblNewLabel_2);
+		
+		lblNewLabel_3 = new JLabel("Expertise");
+		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_3.setFont(new Font("Times New Roman", Font.ITALIC, 12));
+		lblNewLabel_3.setBounds(42, 153, 71, 14);
+		contentPane.add(lblNewLabel_3);
 	}
 
 }

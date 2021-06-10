@@ -18,6 +18,9 @@ import javax.swing.JComboBox;
 import javax.swing.ComboBoxModel;
 import javax.swing.JButton;
 import java.util.Calendar;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
 public class TaskForm extends JFrame {
 	
 	ArrayList cars = new ArrayList(1);
@@ -165,15 +168,15 @@ public void getCar() {
 //			        updateLabel(petName);
 			}
 		});
-		comboBox.setBounds(148, 71, 159, 24);
+		comboBox.setBounds(148, 71, 208, 24);
 		contentPane.add(comboBox);
 		
 		JComboBox comboBox_1 = new JComboBox(array2);
-		comboBox_1.setBounds(148, 120, 140, 24);
+		comboBox_1.setBounds(148, 120, 208, 24);
 		contentPane.add(comboBox_1);
 		
 		JComboBox comboBox_2 = new JComboBox(array3);
-		comboBox_2.setBounds(148, 165, 140, 24);
+		comboBox_2.setBounds(148, 165, 208, 24);
 		contentPane.add(comboBox_2);
 		
 		JButton btnNewButton = new JButton("Create a new task");
@@ -214,7 +217,31 @@ public void getCar() {
 			
 			}
 		});
-		btnNewButton.setBounds(122, 213, 89, 23);
+		btnNewButton.setBounds(190, 211, 134, 23);
 		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel = new JLabel("Welcome, Fill the form to create a new task");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
+		lblNewLabel.setBounds(94, 11, 273, 37);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Available cars");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.ITALIC, 12));
+		lblNewLabel_1.setBounds(27, 76, 92, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("First Emt");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.ITALIC, 12));
+		lblNewLabel_2.setBounds(27, 125, 92, 14);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("Second Emt");
+		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_3.setFont(new Font("Times New Roman", Font.ITALIC, 12));
+		lblNewLabel_3.setBounds(27, 175, 92, 14);
+		contentPane.add(lblNewLabel_3);
 	}
 }

@@ -12,12 +12,18 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class carForm extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField CarType;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
 
 	/**
 	 * Launch the application.
@@ -56,9 +62,28 @@ public class carForm extends JFrame {
 		contentPane.add(CarType);
 		CarType.setColumns(10);
 		
-		JButton btnNewButton = new JButton("New button");
+		JButton btnNewButton = new JButton("Register");
+		btnNewButton.setFont(new Font("Times New Roman", Font.ITALIC, 12));
 		btnNewButton.setBounds(163, 198, 89, 23);
 		contentPane.add(btnNewButton);
+		
+		lblNewLabel = new JLabel("Welcome, fill the form to register a new car");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
+		lblNewLabel.setBounds(62, 24, 278, 23);
+		contentPane.add(lblNewLabel);
+		
+		lblNewLabel_1 = new JLabel("Registration number");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.ITALIC, 12));
+		lblNewLabel_1.setBounds(21, 77, 119, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		lblNewLabel_2 = new JLabel("Password");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.ITALIC, 12));
+		lblNewLabel_2.setBounds(40, 126, 86, 14);
+		contentPane.add(lblNewLabel_2);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
