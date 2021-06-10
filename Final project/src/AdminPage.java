@@ -43,7 +43,7 @@ public class AdminPage extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				 AdminForm ggg= new AdminForm();
+				 AdminForm2 ggg= new AdminForm2();
 				ggg.setVisible(true);
 			}
 		});
