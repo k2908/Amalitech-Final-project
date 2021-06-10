@@ -39,20 +39,5 @@ CREATE TABLE IF NOT EXISTS "Task" (
 	"Emt2"	int,
 	PRIMARY KEY("Id" AUTOINCREMENT)
 );
-INSERT INTO "Car" ("RegitrationNo","CarType","Status") VALUES (4444,'fkkkg','available');
-INSERT INTO "Car" ("RegitrationNo","CarType","Status") VALUES (12365,'gfhjjh','available');
-INSERT INTO "Car" ("RegitrationNo","CarType","Status") VALUES (12366,'','available');
-INSERT INTO "User" ("id","FName","LName","UserName","Password") VALUES (1,'nkjl;jml','jlljjll','llklklkl','lllllj');
-INSERT INTO "Emt" ("id","FName","LName","Status","Expertise") VALUES (1,'jjhhjhjkh','hhjhhkkj','available','hhkhkjkjk');
-INSERT INTO "Emt" ("id","FName","LName","Status","Expertise") VALUES (2,'n,,m,n,','hjhjhj','available',',,.kmm
-');
-INSERT INTO "Emt" ("id","FName","LName","Status","Expertise") VALUES (3,'khjnjnj','jknjnnkjn','available','ljllml');
-INSERT INTO "Emt" ("id","FName","LName","Status","Expertise") VALUES (4,'hkbnkjnjll','kbknkljn','available','hjbkj,nk');
-INSERT INTO "Admin" ("id","AdminFName","AdminLName","UserName","Password") VALUES (1,'kofi','jjjj','kofi36@gmail.com','Amen52');
-INSERT INTO "Admin" ("id","AdminFName","AdminLName","UserName","Password") VALUES (2,'hkffjk','gjhkjjkj','hsjhks@ghhh.com','Amen54');
-INSERT INTO "Admin" ("id","AdminFName","AdminLName","UserName","Password") VALUES (3,'jhhjjj','jbbjbkjjh','1','2');
-INSERT INTO "Admin" ("id","AdminFName","AdminLName","UserName","Password") VALUES (4,'ds','sddfd','ddfg','dggfgfrrf');
-INSERT INTO "Admin" ("id","AdminFName","AdminLName","UserName","Password") VALUES (5,'hjhjhkhk','gfghhjkhj','gfghggj','gfghjjk');
-INSERT INTO "Admin" ("id","AdminFName","AdminLName","UserName","Password") VALUES (6,'hgvj vk','ghfcjvgh','ghjgkb','fdhgl');
-INSERT INTO "Task" ("Id","Status","StarTime","EndTime","car","Emt1","Emt2") VALUES (1,'in progress','Wed Jun 09 21:09:05 GMT 2021',NULL,4444,1,1);
+
 COMMIT;
