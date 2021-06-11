@@ -103,6 +103,11 @@ public class LoginPage {
 								 UserPage ggg= new UserPage();
 								ggg.setVisible(true);
 							}
+							else {
+								JOptionPane.showMessageDialog(null, "username and password is not correct, try again");
+								
+							}
+							
 						}
 						catch (Exception e1){
 						 JOptionPane.showMessageDialog(null, "username and password is not correct, try again");

@@ -190,21 +190,30 @@ public void getCar() {
 					Date dt=java.util.Calendar.getInstance().getTime();
 					Connection connect= DbConnect.dbConnect();
 						String query2 ="INSERT INTO Task VALUES(?,?,?,?,?,?,?)";
+						String query3 ="UPDATE Emt SET Status =?  WHERE id=?";
+						String query4 ="UPDATE Emt SET Status =?  WHERE id=?";
+						
 						PreparedStatement pst2 = connect.prepareStatement(query2);
+						PreparedStatement pst3 = connect.prepareStatement(query3);
+						PreparedStatement pst4 = connect.prepareStatement(query4);
 						pst2.setString(2, new String("in progress"));
-						System.out.println();
+						pst3.setString(1, new String("not available"));
+						pst4.setString(1, new String("not available"));
+						
 						pst2.setString(3, dt.toString());
-						System.out.println(dt.toString());
+						
 						Object value=comboBox.getSelectedItem();
 						Object value1= comboBox_1.getSelectedItem();
 						Object value2=comboBox_2.getSelectedItem();
 						pst2.setObject(5, value);
 						pst2.setObject(6, value1);	
 						pst2.setObject(7, value2);
-						System.out.println(value);
-						System.out.println(value1);
-						System.out.println(pst2);
-						pst2.executeUpdate();	
+						pst3.setObject(2, value2);
+						pst4.setObject(2, value2);					
+						pst2.executeUpdate();
+						pst3.executeUpdate();
+						pst4.executeUpdate();
+						System.out.println(pst4);
 						 JOptionPane.showMessageDialog(null, "new task registered succesfuly");
 						
 				
