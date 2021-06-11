@@ -10,6 +10,8 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
 
+import net.proteanit.sql.DbUtils;
+
 //import net.proteanit.sql.DbUtils;
 
 import javax.swing.ListSelectionModel;
@@ -51,14 +53,14 @@ public class ShowTasks extends JFrame {
 	 */
 	public ShowTasks() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 691, 389);
 		contentPane = new JPanel();
 		contentPane.setBorder(new CompoundBorder());
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(45, 30, 307, 208);
+		scrollPane.setBounds(45, 30, 589, 290);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -73,9 +75,9 @@ public class ShowTasks extends JFrame {
 				int count=0;
 				PreparedStatement pst= connect.prepareStatement(query);
 				
-					pst.setString(1,new String ("available"));
+					pst.setString(1,new String ("in progress"));
 					ResultSet rs=pst.executeQuery();
-			//		table.setModel(DbUtils.resultSetToTableModel(rs));
+			table.setModel(DbUtils.resultSetToTableModel(rs));
 					while(rs.next()) {
 						count=count+1;}
 				} catch (SQLException e1) {
@@ -88,7 +90,7 @@ public class ShowTasks extends JFrame {
 			
 		});
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
-		btnNewButton.setBounds(161, 0, 172, 23);
+		btnNewButton.setBounds(251, 0, 172, 23);
 		contentPane.add(btnNewButton);
 	}
 }
