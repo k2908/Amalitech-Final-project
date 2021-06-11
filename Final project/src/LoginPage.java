@@ -84,11 +84,11 @@ public class LoginPage {
 					
 					else if (count==0){
 						try {
-							System.out.println("ujjjj");
+							
 							String query2 ="select * from user where UserName=? and password=?";
 							PreparedStatement pst2= connect.prepareStatement(query2);
 							pst2.setString(1, textField1.getText());
-							System.out.println(pst2);
+							
 							pst2.setString(2,new String (passwordField.getPassword()));	
 							ResultSet rs2=pst2.executeQuery();
 							int count2=0;
