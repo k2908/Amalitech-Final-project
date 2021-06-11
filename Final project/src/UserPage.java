@@ -56,7 +56,7 @@ public class UserPage extends JFrame {
 		JButton btnNewButton_1 = new JButton("Show acive tasks");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TaskForm ggg= new TaskForm();
+				ShowTasks ggg= new ShowTasks();
 				ggg.setVisible(true);
 			}
 		});
