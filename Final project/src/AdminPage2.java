@@ -55,7 +55,7 @@ public class AdminPage2 extends JFrame {
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 12));
 		btnNewButton.setForeground(new Color(0, 128, 128));
 		btnNewButton.setBackground(new Color(135, 206, 235));
-		btnNewButton.setBounds(57, 61, 89, 23);
+		btnNewButton.setBounds(40, 38, 164, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Add user");
@@ -68,7 +68,7 @@ public class AdminPage2 extends JFrame {
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 12));
 		btnNewButton_1.setBackground(new Color(135, 206, 235));
 		btnNewButton_1.setForeground(new Color(0, 128, 128));
-		btnNewButton_1.setBounds(273, 61, 89, 23);
+		btnNewButton_1.setBounds(245, 38, 164, 23);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Add Car");
@@ -81,7 +81,7 @@ public class AdminPage2 extends JFrame {
 		btnNewButton_2.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 12));
 		btnNewButton_2.setForeground(new Color(0, 128, 128));
 		btnNewButton_2.setBackground(new Color(135, 206, 235));
-		btnNewButton_2.setBounds(57, 173, 89, 23);
+		btnNewButton_2.setBounds(40, 144, 164, 23);
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Add Emt");
@@ -93,7 +93,7 @@ public class AdminPage2 extends JFrame {
 		btnNewButton_3.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 12));
 		btnNewButton_3.setForeground(new Color(0, 128, 128));
 		btnNewButton_3.setBackground(new Color(135, 206, 235));
-		btnNewButton_3.setBounds(273, 173, 89, 23);
+		btnNewButton_3.setBounds(245, 194, 164, 23);
 		contentPane.add(btnNewButton_3);
 		
 		JLabel lblNewLabel = new JLabel("Welcome");
@@ -102,6 +102,45 @@ public class AdminPage2 extends JFrame {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(172, 11, 89, 38);
 		contentPane.add(lblNewLabel);
+		
+		JButton btnCreateNewTask = new JButton("Create new task");
+		btnCreateNewTask.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TaskForm ggg= new TaskForm();
+				ggg.setVisible(true);
+			}
+		});
+		btnCreateNewTask.setForeground(new Color(0, 128, 128));
+		btnCreateNewTask.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 12));
+		btnCreateNewTask.setBackground(new Color(135, 206, 235));
+		btnCreateNewTask.setBounds(40, 89, 164, 23);
+		contentPane.add(btnCreateNewTask);
+		
+		JButton btnNewButton_1_1 = new JButton("Show Completed tasks");
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CompletedTasks ggg= new CompletedTasks();
+				ggg.setVisible(true);
+			}
+		});
+		btnNewButton_1_1.setForeground(new Color(0, 128, 128));
+		btnNewButton_1_1.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 12));
+		btnNewButton_1_1.setBackground(new Color(135, 206, 235));
+		btnNewButton_1_1.setBounds(245, 89, 164, 23);
+		contentPane.add(btnNewButton_1_1);
+		
+		JButton btnNewButton_1_1_1 = new JButton("Show Active tasks");
+		btnNewButton_1_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ShowTasks ggg= new ShowTasks();
+				ggg.setVisible(true);
+			}
+		});
+		btnNewButton_1_1_1.setForeground(new Color(0, 128, 128));
+		btnNewButton_1_1_1.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 12));
+		btnNewButton_1_1_1.setBackground(new Color(135, 206, 235));
+		btnNewButton_1_1_1.setBounds(245, 144, 164, 23);
+		contentPane.add(btnNewButton_1_1_1);
 	}
 
 }

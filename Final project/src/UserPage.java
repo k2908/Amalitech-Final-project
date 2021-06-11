@@ -10,6 +10,7 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class UserPage extends JFrame {
 
@@ -67,5 +68,16 @@ public class UserPage extends JFrame {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(131, 26, 159, 42);
 		contentPane.add(lblNewLabel);
+		
+		JButton btnNewButton_2 = new JButton("Show completed tasks");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CompletedTasks ggg= new CompletedTasks();
+				ggg.setVisible(true);
+			}
+		});
+		btnNewButton_2.setFont(new Font("Times New Roman", Font.ITALIC, 12));
+		btnNewButton_2.setBounds(116, 170, 174, 23);
+		contentPane.add(btnNewButton_2);
 	}
 }
