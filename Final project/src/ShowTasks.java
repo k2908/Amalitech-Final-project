@@ -10,7 +10,7 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
 
-import net.proteanit.sql.DbUtils;
+//import net.proteanit.sql.DbUtils;
 
 import javax.swing.ListSelectionModel;
 import javax.swing.JScrollPane;
@@ -69,13 +69,13 @@ public class ShowTasks extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 				Connection connect= DbConnect.dbConnect();
-				String query ="select * from Tasks where Status=?;";
+				String query ="select * from Task where Status=?;";
 				int count=0;
 				PreparedStatement pst= connect.prepareStatement(query);
 				
 					pst.setString(1,new String ("available"));
 					ResultSet rs=pst.executeQuery();
-					table.setModel(DbUtils.resultSetToTableModel(rs));
+			//		table.setModel(DbUtils.resultSetToTableModel(rs));
 					while(rs.next()) {
 						count=count+1;}
 				} catch (SQLException e1) {

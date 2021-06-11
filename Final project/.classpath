@@ -12,11 +12,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="Ressources/rs2xml.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="lib" path="Ressources/sqlite-jdbc-3.34.0.jar">
 		<attributes>
 			<attribute name="module" value="true"/>

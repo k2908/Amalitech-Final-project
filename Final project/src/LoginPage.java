@@ -74,26 +74,32 @@ public class LoginPage {
 					if(count==1) {
 						 JOptionPane.showMessageDialog(null, "username and password is correct");
 						frame.dispose();
+						rs.close();
+						pst.close();
 						 AdminPage2 ggg= new AdminPage2();
 						ggg.setVisible(true);
 					}
 					else if (count>1) {
 						 JOptionPane.showMessageDialog(null, "duplicate username and password");}
 					
-					else {
+					else if (count==0){
 						try {
+							System.out.println("ujjjj");
 							String query2 ="select * from user where UserName=? and password=?";
 							PreparedStatement pst2= connect.prepareStatement(query2);
-							pst.setString(1, textField1.getText());
-							pst.setString(2,new String (passwordField.getPassword()));	
-							ResultSet r2s=pst2.executeQuery();
-							int coun2t=0;
-							while(rs.next()) {
-								count=count+1;
+							pst2.setString(1, textField1.getText());
+							System.out.println(pst2);
+							pst2.setString(2,new String (passwordField.getPassword()));	
+							ResultSet rs2=pst2.executeQuery();
+							int count2=0;
+							while(rs2.next()) {
+								count2=count2+1;
 							}
-							if(count==1) {
+							if(count2==1) {
 								 JOptionPane.showMessageDialog(null, "username and password is correct");
 								frame.dispose();
+								rs2.close();
+								pst2.close();
 								 UserPage ggg= new UserPage();
 								ggg.setVisible(true);
 							}
@@ -101,9 +107,9 @@ public class LoginPage {
 						catch (Exception e1){
 						 JOptionPane.showMessageDialog(null, "username and password is not correct, try again");
 						}
-				rs.close();
-				pst.close();
-				}}
+				
+				}
+					}
 				 catch (Exception e1) {
 					   JOptionPane.showMessageDialog(null, "enter a valid character");
 					} 
