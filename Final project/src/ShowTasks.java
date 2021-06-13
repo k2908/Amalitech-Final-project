@@ -56,14 +56,14 @@ public class ShowTasks extends JFrame {
 	 */
 	public ShowTasks() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 913, 389);
+		setBounds(100, 100, 1067, 570);
 		contentPane = new JPanel();
 		contentPane.setBorder(new CompoundBorder());
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(45, 30, 589, 290);
+		scrollPane.setBounds(45, 30, 828, 490);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -99,11 +99,11 @@ public class ShowTasks extends JFrame {
 		JLabel lblNewLabel = new JLabel("Mark task as complete");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
-		lblNewLabel.setBounds(713, 5, 174, 18);
+		lblNewLabel.setBounds(867, 2, 174, 18);
 		contentPane.add(lblNewLabel);
 		
 		textField = new JTextField();
-		textField.setBounds(766, 117, 86, 20);
+		textField.setBounds(926, 103, 86, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
@@ -192,13 +192,13 @@ public class ShowTasks extends JFrame {
 					}}
 		});
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.ITALIC, 12));
-		btnNewButton_1.setBounds(763, 211, 89, 23);
+		btnNewButton_1.setBounds(923, 195, 89, 23);
 		contentPane.add(btnNewButton_1);
 		
 		JLabel lblNewLabel_1 = new JLabel("Task Id");
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.ITALIC, 12));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setBounds(763, 75, 89, 14);
+		lblNewLabel_1.setBounds(923, 60, 89, 14);
 		contentPane.add(lblNewLabel_1);
 	}
 }
