@@ -20,7 +20,10 @@ import javax.swing.JButton;
 import java.util.Calendar;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.TextArea;
+
 import javax.swing.SwingConstants;
+import javax.swing.JTextArea;
 public class TaskForm extends JFrame {
 	
 	ArrayList cars = new ArrayList(1);
@@ -168,15 +171,19 @@ public void getCar() {
 //			        updateLabel(petName);
 			}
 		});
-		comboBox.setBounds(148, 71, 208, 24);
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(148, 171, 208, 43);
+		contentPane.add(textArea);
+		
+		comboBox.setBounds(148, 59, 208, 24);
 		contentPane.add(comboBox);
 		
 		JComboBox comboBox_1 = new JComboBox(array2);
-		comboBox_1.setBounds(148, 120, 208, 24);
+		comboBox_1.setBounds(148, 94, 208, 24);
 		contentPane.add(comboBox_1);
 		
 		JComboBox comboBox_2 = new JComboBox(array3);
-		comboBox_2.setBounds(148, 165, 208, 24);
+		comboBox_2.setBounds(148, 136, 208, 24);
 		contentPane.add(comboBox_2);
 		
 		JButton btnNewButton = new JButton("Create a new task");
@@ -186,20 +193,22 @@ public void getCar() {
 				
 				
 				try {
-					
+					String jake=textArea.getText();
 					Date dt=java.util.Calendar.getInstance().getTime();
 					Connection connect= DbConnect.dbConnect();
-						String query2 ="INSERT INTO Task VALUES(?,?,?,?,?,?,?)";
+						String query2 ="INSERT INTO Task VALUES(?,?,?,?,?,?,?,?)";
 						String query3 ="UPDATE Emt SET Status =?  WHERE id=?";
 						String query4 ="UPDATE Emt SET Status =?  WHERE id=?";
+						String query5 ="UPDATE car SET Status =?  WHERE regitrationNo=?";
 						
 						PreparedStatement pst2 = connect.prepareStatement(query2);
 						PreparedStatement pst3 = connect.prepareStatement(query3);
 						PreparedStatement pst4 = connect.prepareStatement(query4);
+						PreparedStatement pst5 = connect.prepareStatement(query5);
 						pst2.setString(2, new String("in progress"));
 						pst3.setString(1, new String("not available"));
 						pst4.setString(1, new String("not available"));
-						
+						pst2.setString(8, jake);
 						pst2.setString(3, dt.toString());
 						
 						Object value=comboBox.getSelectedItem();
@@ -209,15 +218,22 @@ public void getCar() {
 						pst2.setObject(6, value1);	
 						pst2.setObject(7, value2);
 						pst3.setObject(2, value2);
-						pst4.setObject(2, value2);					
+						pst4.setObject(2, value2);	
+						pst5.setObject(2, value);
+						pst5.setString(1,new String("not available"));
 						pst2.executeUpdate();
 						pst3.executeUpdate();
 						pst4.executeUpdate();
-						System.out.println(pst4);
+						pst5.executeUpdate();
+					//	System.out.println(pst4);
 						 JOptionPane.showMessageDialog(null, "new task registered succesfuly");
 						
 				
 				pst2.close();
+				pst3.close();
+				pst4.close();
+				pst5.close();
+			//	frame.dispose();
 				}
 					
 				 catch (Exception e1) {
@@ -226,7 +242,7 @@ public void getCar() {
 			
 			}
 		});
-		btnNewButton.setBounds(190, 211, 134, 23);
+		btnNewButton.setBounds(148, 225, 208, 23);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("Welcome, Fill the form to create a new task");
@@ -238,19 +254,29 @@ public void getCar() {
 		JLabel lblNewLabel_1 = new JLabel("Available cars");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.ITALIC, 12));
-		lblNewLabel_1.setBounds(27, 76, 92, 14);
+		lblNewLabel_1.setBounds(27, 64, 92, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("First Emt");
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setFont(new Font("Times New Roman", Font.ITALIC, 12));
-		lblNewLabel_2.setBounds(27, 125, 92, 14);
+		lblNewLabel_2.setBounds(27, 103, 92, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Second Emt");
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3.setFont(new Font("Times New Roman", Font.ITALIC, 12));
-		lblNewLabel_3.setBounds(27, 175, 92, 14);
+		lblNewLabel_3.setBounds(27, 141, 92, 14);
 		contentPane.add(lblNewLabel_3);
+		
+//		JTextArea textArea = new JTextArea();
+//		textArea.setBounds(148, 184, 208, 43);
+//		contentPane.add(textArea);
+//		String jake=textArea.getText();
+		JLabel lblNewLabel_4 = new JLabel("Task details");
+		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_4.setFont(new Font("Times New Roman", Font.ITALIC, 12));
+		lblNewLabel_4.setBounds(27, 187, 92, 14);
+		contentPane.add(lblNewLabel_4);
 	}
 }
