@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS "Task" (
 	"car"	int,
 	"Emt1"	int,
 	"Emt2"	int,
+	"Task details"	TEXT,
 	PRIMARY KEY("Id" AUTOINCREMENT)
 );
-
 COMMIT;
