@@ -48,7 +48,7 @@ public class AdminPage2 extends JFrame {
 		JButton btnNewButton = new JButton("Add admin");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 AdminForm ggg= new AdminForm();
+				 AdminForm2 ggg= new AdminForm2();
 					ggg.setVisible(true);
 			}
 		});
