@@ -26,6 +26,7 @@ public class UserForm extends JFrame {
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
 	private JLabel lblNewLabel_4;
+	private JButton btnBack;
 
 	/**
 	 * Launch the application.
@@ -36,6 +37,7 @@ public class UserForm extends JFrame {
 				try {
 					UserForm frame = new UserForm();
 					frame.setVisible(true);
+					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -87,6 +89,20 @@ public class UserForm extends JFrame {
 				
 				
 				try {
+					if(Fname.getText().isEmpty()){
+						JOptionPane.showMessageDialog(null, "enter a proper first name");
+					} else {
+						if(Lname.getText().isEmpty()){
+							JOptionPane.showMessageDialog(null, "enter a proper last name");
+						} else {
+							if(Username.getText().isEmpty()){							
+								JOptionPane.showMessageDialog(null, "enter a proper username");
+							} else {
+								if(passwordField.getPassword().length==0){
+							
+								JOptionPane.showMessageDialog(null, "password cannot be empty");
+							} else {
+					
 					Connection connect= DbConnect.dbConnect();
 					String query ="select * from User where UserName=?;";
 					int count=0;
@@ -116,7 +132,7 @@ public class UserForm extends JFrame {
 				
 				pst2.close();
 				}
-					}
+					}}}}}
 				 catch (Exception e1) {
 					   JOptionPane.showMessageDialog(null, "enter valid characters");
 					} 
@@ -151,6 +167,23 @@ public class UserForm extends JFrame {
 		lblNewLabel_4.setFont(new Font("Times New Roman", Font.ITALIC, 12));
 		lblNewLabel_4.setBounds(51, 173, 90, 14);
 		contentPane.add(lblNewLabel_4);
+		
+		btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				if (DbConnect.g==1)
+				{	UserPage ggg= new UserPage();
+				ggg.setVisible(true);}
+				else if (DbConnect.g==2)
+				{	AdminPage2 ggg= new AdminPage2();
+				ggg.setVisible(true);}
+				
+			}
+		});
+		btnBack.setFont(new Font("Times New Roman", Font.ITALIC, 12));
+		btnBack.setBounds(311, 166, 89, 23);
+		contentPane.add(btnBack);
 	}
 
 }

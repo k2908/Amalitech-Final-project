@@ -44,6 +44,7 @@ public class ShowTasks extends JFrame {
 				try {
 					ShowTasks frame = new ShowTasks();
 					frame.setVisible(true);
+					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -133,21 +134,22 @@ public class ShowTasks extends JFrame {
 					pst8.setString(1, dt.toString());
 				
 					
-//					System.out.println(rs);
-//					
-//					System.out.println(rs2);
-//					System.out.println(rs3);
+
 					
 					pst1.setObject(1, textField.getText());
 					pst2.setObject(1, textField.getText());
 					pst3.setObject(1, textField.getText());
 					pst7.setObject(2, textField.getText());
 					pst4.setString(1, new String("available"));
+					pst5.setString(1, new String("available"));
 					ResultSet rs=pst1.executeQuery();
 					ResultSet rs2=pst2.executeQuery();
 					ResultSet rs3=pst3.executeQuery();
+					System.out.println(rs);
+					System.out.println(textField.getText());
+					System.out.println(rs2);
+					System.out.println(rs3);
 					pst4.setObject(2,rs2);
-					pst5.setString(1, new String("available"));
 					pst5.setObject(2,rs3);
 					pst6.setString(1, new String("available"));
 					pst6.setObject(2,rs);
@@ -171,7 +173,7 @@ public class ShowTasks extends JFrame {
 					pst7.executeUpdate();
 					pst8.executeUpdate();
 					System.out.println(pst1);
-					System.out.println(pst2);
+					System.out.println(rs2);
 					System.out.println(pst3);
 					System.out.println(pst4);
 					System.out.println(pst5);
@@ -200,5 +202,22 @@ public class ShowTasks extends JFrame {
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBounds(923, 60, 89, 14);
 		contentPane.add(lblNewLabel_1);
+		
+		JButton btnNewButton_1_1 = new JButton("back");
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				if (DbConnect.g==1)
+				{	UserPage ggg= new UserPage();
+				ggg.setVisible(true);}
+				else if (DbConnect.g==2)
+				{	AdminPage2 ggg= new AdminPage2();
+				ggg.setVisible(true);}
+				
+			}
+		});
+		btnNewButton_1_1.setFont(new Font("Times New Roman", Font.ITALIC, 12));
+		btnNewButton_1_1.setBounds(923, 271, 89, 23);
+		contentPane.add(btnNewButton_1_1);
 	}
 }

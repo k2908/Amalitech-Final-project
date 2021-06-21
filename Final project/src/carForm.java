@@ -24,6 +24,7 @@ public class carForm extends JFrame {
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
+	private JButton btnBack;
 
 	/**
 	 * Launch the application.
@@ -34,6 +35,7 @@ public class carForm extends JFrame {
 				try {
 					carForm frame = new carForm();
 					frame.setVisible(true);
+					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -79,11 +81,28 @@ public class carForm extends JFrame {
 		lblNewLabel_1.setBounds(21, 77, 119, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		lblNewLabel_2 = new JLabel("Password");
+		lblNewLabel_2 = new JLabel("Car type");
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setFont(new Font("Times New Roman", Font.ITALIC, 12));
 		lblNewLabel_2.setBounds(40, 126, 86, 14);
 		contentPane.add(lblNewLabel_2);
+		
+		btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				if (DbConnect.g==1)
+				{	UserPage ggg= new UserPage();
+				ggg.setVisible(true);}
+				else if (DbConnect.g==2)
+				{	AdminPage2 ggg= new AdminPage2();
+				ggg.setVisible(true);}
+				
+			}
+		});
+		btnBack.setFont(new Font("Times New Roman", Font.ITALIC, 12));
+		btnBack.setBounds(309, 122, 89, 23);
+		contentPane.add(btnBack);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

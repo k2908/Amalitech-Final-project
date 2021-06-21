@@ -24,6 +24,7 @@ public class CompletedTasks extends JFrame {
 	private JPanel contentPane;
 	private JTable table;
 	private JScrollPane scrollPane;
+	private JButton btnNewButton_1;
 
 	/**
 	 * Launch the application.
@@ -34,6 +35,7 @@ public class CompletedTasks extends JFrame {
 				try {
 					CompletedTasks frame = new CompletedTasks();
 					frame.setVisible(true);
+					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -46,7 +48,7 @@ public class CompletedTasks extends JFrame {
 	 */
 	public CompletedTasks() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 684, 411);
+		setBounds(100, 100, 736, 410);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -76,7 +78,7 @@ public class CompletedTasks extends JFrame {
 			
 		});
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
-		btnNewButton.setBounds(146, 11, 89, 23);
+		btnNewButton.setBounds(183, 20, 295, 23);
 		contentPane.add(btnNewButton);
 		
 		scrollPane = new JScrollPane();
@@ -85,5 +87,22 @@ public class CompletedTasks extends JFrame {
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
+		
+		btnNewButton_1 = new JButton("Back");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				if (DbConnect.g==1)
+				{	UserPage ggg= new UserPage();
+				ggg.setVisible(true);}
+				else if (DbConnect.g==2)
+				{	AdminPage2 ggg= new AdminPage2();
+				ggg.setVisible(true);}
+				
+			}
+		});
+		btnNewButton_1.setFont(new Font("Times New Roman", Font.ITALIC, 12));
+		btnNewButton_1.setBounds(631, 204, 89, 23);
+		contentPane.add(btnNewButton_1);
 	}
 }

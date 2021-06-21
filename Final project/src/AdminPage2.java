@@ -25,6 +25,7 @@ public class AdminPage2 extends JFrame {
 				try {
 					AdminPage2 frame = new AdminPage2();
 					frame.setVisible(true);
+					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -50,6 +51,8 @@ public class AdminPage2 extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				 AdminForm2 ggg= new AdminForm2();
 					ggg.setVisible(true);
+					DbConnect.g=2;
+					dispose();
 			}
 		});
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 12));
@@ -63,6 +66,8 @@ public class AdminPage2 extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				 UserForm ggg= new UserForm();
 					ggg.setVisible(true);
+					DbConnect.g=2;
+					dispose();
 			}
 		});
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 12));
@@ -76,6 +81,8 @@ public class AdminPage2 extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				 carForm ggg= new carForm();
 					ggg.setVisible(true);
+					DbConnect.g=2;;
+					dispose();
 			}
 		});
 		btnNewButton_2.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 12));
@@ -88,7 +95,9 @@ public class AdminPage2 extends JFrame {
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 EmtForm ggg= new EmtForm();
-					ggg.setVisible(true);}
+					ggg.setVisible(true);
+					DbConnect.g=2;
+					dispose();}
 		});
 		btnNewButton_3.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 12));
 		btnNewButton_3.setForeground(new Color(0, 128, 128));
@@ -103,11 +112,12 @@ public class AdminPage2 extends JFrame {
 		lblNewLabel.setBounds(172, 11, 89, 38);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnCreateNewTask = new JButton("Create new task");
+		JButton btnCreateNewTask = new JButton("Log out");
 		btnCreateNewTask.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TaskForm ggg= new TaskForm();
-				ggg.setVisible(true);
+				dispose();
+				LoginPage ggg= new LoginPage();
+				LoginPage.main(null);
 			}
 		});
 		btnCreateNewTask.setForeground(new Color(0, 128, 128));
@@ -121,6 +131,8 @@ public class AdminPage2 extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				CompletedTasks ggg= new CompletedTasks();
 				ggg.setVisible(true);
+				DbConnect.g=2;
+				dispose();
 			}
 		});
 		btnNewButton_1_1.setForeground(new Color(0, 128, 128));
@@ -134,6 +146,8 @@ public class AdminPage2 extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ShowTasks ggg= new ShowTasks();
 				ggg.setVisible(true);
+				DbConnect.g=2;
+				dispose();
 			}
 		});
 		btnNewButton_1_1_1.setForeground(new Color(0, 128, 128));

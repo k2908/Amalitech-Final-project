@@ -3,7 +3,7 @@
 
 public class DbConnect {
 
-	
+	static int g=0;
 		Connection conn=null;
 		public static Connection dbConnect() {
 			

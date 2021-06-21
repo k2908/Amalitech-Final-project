@@ -26,6 +26,7 @@ public class EmtForm extends JFrame {
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
+	private JButton btnBack;
 
 	/**
 	 * Launch the application.
@@ -36,6 +37,7 @@ public class EmtForm extends JFrame {
 				try {
 					EmtForm frame = new EmtForm();
 					frame.setVisible(true);
+					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -74,6 +76,13 @@ public class EmtForm extends JFrame {
 				
 				
 				try {
+					if(Fname.getText().isEmpty()){
+						JOptionPane.showMessageDialog(null, "enter a proper first name");
+					} 
+					else {
+						if(Lname.getText().isEmpty()){
+							JOptionPane.showMessageDialog(null, "enter a proper last name");
+						} else {
 					Connection connect= DbConnect.dbConnect();
 					
 //						rs.close();
@@ -92,6 +101,9 @@ public class EmtForm extends JFrame {
 				pst2.close();
 				
 					}
+					}
+	
+				}
 				 catch (Exception e1) {
 					   JOptionPane.showMessageDialog(null, "enter valid characters");
 					} 
@@ -127,6 +139,24 @@ public class EmtForm extends JFrame {
 		lblNewLabel_3.setFont(new Font("Times New Roman", Font.ITALIC, 12));
 		lblNewLabel_3.setBounds(42, 153, 71, 14);
 		contentPane.add(lblNewLabel_3);
+		
+		btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				if (DbConnect.g==1)
+				{	UserPage ggg= new UserPage();
+				ggg.setVisible(true);}
+				else if (DbConnect.g==2)
+				{	AdminPage2 ggg= new AdminPage2();
+				ggg.setVisible(true);}
+				}
+				
+			
+		});
+		btnBack.setFont(new Font("Times New Roman", Font.ITALIC, 12));
+		btnBack.setBounds(308, 146, 89, 23);
+		contentPane.add(btnBack);
 	}
 
 }
