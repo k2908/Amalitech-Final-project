@@ -148,11 +148,11 @@ public class ShowTasks extends JFrame {
 					System.out.println(rs);
 					System.out.println(textField.getText());
 					System.out.println(rs2);
-					System.out.println(rs3);
-					pst4.setObject(2,rs2);
-					pst5.setObject(2,rs3);
+					System.out.println(rs3.getInt(1));
+					pst4.setObject(2,rs2.getInt(1));
+					pst5.setObject(2,rs3.getInt(1));
 					pst6.setString(1, new String("available"));
-					pst6.setObject(2,rs);
+					pst6.setObject(2,rs.getInt(1));
 					pst7.setString(1, new String("completed"));
 					pst7.setObject(2, textField.getText());
 					pst8.setString(1, dt.toString());
